@@ -17000,3 +17000,28 @@ Processing by NotesController#index as HTML
 Completed 200 OK in 11ms (Views: 10.3ms | ActiveRecord: 0.1ms | Allocations: 8122)
 
 
+Started GET "/" for ::1 at 2023-03-15 22:04:42 +0300
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by HomeController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (Duration: 0.4ms | Allocations: 337)
+  Rendered home/_header.html.erb (Duration: 0.7ms | Allocations: 989)
+  Rendered home/_footer.html.erb (Duration: 0.4ms | Allocations: 321)
+  Rendered layout layouts/application.html.erb (Duration: 73.2ms | Allocations: 43902)
+Completed 200 OK in 77ms (Views: 74.3ms | ActiveRecord: 0.0ms | Allocations: 46788)
+
+
+Started GET "/notes" for ::1 at 2023-03-15 22:04:45 +0300
+Processing by NotesController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering notes/index.html.erb within layouts/application
+  [1m[36mNote Load (0.4ms)[0m  [1m[34mSELECT "notes".* FROM "notes"[0m
+  ↳ app/views/notes/index.html.erb:26
+  Rendered notes/index.html.erb within layouts/application (Duration: 12.8ms | Allocations: 10544)
+  Rendered home/_header.html.erb (Duration: 0.5ms | Allocations: 642)
+  Rendered home/_footer.html.erb (Duration: 0.1ms | Allocations: 89)
+  Rendered layout layouts/application.html.erb (Duration: 16.7ms | Allocations: 13588)
+Completed 200 OK in 22ms (Views: 17.5ms | ActiveRecord: 0.9ms | Allocations: 14880)
+
+
