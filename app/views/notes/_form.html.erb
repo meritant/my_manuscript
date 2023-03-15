@@ -1,0 +1,33 @@
+<%= form_with(model: note) do |form| %>
+  <% if note.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(note.errors.count, "error") %> prohibited this note from being saved:</h2>
+
+      <ul>
+        <% note.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+
+<div class="input-group mb-3">
+  <span class="input-group-text" id="basic-addon1">Title</span>
+
+    <%= form.text_field :title, class:"form-control", placeholder:"My new note..." %>
+</div>
+
+<div class="input-group">
+  <span class="input-group-text">Text</span>
+
+    <%= form.text_area :text, class:"form-control", placeholder:"I have to do...", rows:"8"%>
+</div>
+<br>
+<!--New Note Button-->
+<div class="d-grid justify-content-md-end">
+
+<%= submit_tag ("Submit"), class:"btn btn-success"%>
+</div>
+<!--New Note Button End-->
+<% end %>

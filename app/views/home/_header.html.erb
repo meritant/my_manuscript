@@ -1,0 +1,25 @@
+<nav class="navbar navbar-expand-lg bg-warning-subtle header-margin">
+  <div class="container-fluid"> 
+        <%= image_tag "circle2.png", class:"img-fluid logo"%>
+        <%= link_to 'MyManuscript', root_path, class:"navbar-brand"%>
+
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav">
+        <li class="nav-item">
+        <%= link_to 'HOME', root_path, class:"nav-link active"%>
+        </li>
+        <li class="nav-item">
+        <%= link_to 'NOTES', notes_path, class:"nav-link"%>
+        </li>
+        <li class="nav-item">
+        <%= link_to 'ABOUT', home_about_path, class:"nav-link"%>
+        </li>
+      </ul>
+    </div>
+
+<%= link_to "Sign Up for Free", new_user_path,  class:"btn btn-primary btn-sm"%>
+  </div>
+</nav>

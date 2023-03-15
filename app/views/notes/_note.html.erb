@@ -1,0 +1,46 @@
+<br>
+<br>
+<br>
+<div class="card text-center w-50 center">
+
+  <div class="card-header ">
+
+<!--New Note Button-->
+<div class="d-flex justify-content-between">
+
+    <%= note.created_at%>
+<%= button_to "", note, method: :delete, class:"btn-close" %>
+
+</div>
+
+<!--New Note Button End-->
+
+</div>
+  <div class="card-body">
+    <h5 class="card-title">
+    <%= note.title %>
+    </h5>
+    <p class="card-text">
+
+    <%= note.text%>
+   </p> 
+  </div>
+  <div class="card-footer text-muted">
+
+  <%= link_to "edit", edit_note_path(note.id), class:"btn btn-warning btn-sm"  %> 
+  </div>
+
+</div>
+<br>
+<div class="center">
+  <%= link_to "Back to notes", notes_path %>
+</div>
+</div>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
