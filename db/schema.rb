@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_04_11_153454) do
+ActiveRecord::Schema[7.0].define(version: 2023_04_12_095805) do
   create_table "admins", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
@@ -27,7 +27,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_04_11_153454) do
     t.integer "note_id"
     t.string "title"
     t.string "text"
-    t.integer "user_id"
+    t.integer "admin_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

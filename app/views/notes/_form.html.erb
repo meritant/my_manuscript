@@ -11,17 +11,25 @@
     </div>
   <% end %>
 
+<%# Alert about characters %>
+<div class="alert alert-light" role="alert">
+Maximum 240 Characters
+</div>
 
 <div class="input-group mb-3">
   <span class="input-group-text" id="basic-addon1">Title</span>
 
-    <%= form.text_field :title, class:"form-control", placeholder:"My new note..." %>
+    <%= form.text_field :title, class:"form-control", maxlength: 28, placeholder:"My new note..." %>
 </div>
 
 <div class="input-group">
   <span class="input-group-text">Text</span>
 
-    <%= form.text_area :text, class:"form-control", placeholder:"I have to do...", rows:"8"%>
+    <%= form.text_area :text, class:"form-control", maxlength: 240, placeholder:"I have to do...", rows:"8"%>
+</div>
+<div class="input-group mb-3">
+
+    <%= form.number_field :admin_id, id: :notes_user_id, class:"form-control", value:current_admin.id, type: :hidden %>
 </div>
 <br>
 <!--New Note Button-->

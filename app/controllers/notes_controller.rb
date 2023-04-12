@@ -1,10 +1,15 @@
 class NotesController < ApplicationController
   before_action :set_note, only: %i[ show edit update destroy ]
+  before_action :correct_admin, only: [ :edit, :update, :destroy ]
+
 
   # GET /notes or /notes.json
+  # Ordering records in DESC mode
   def index
-    @notes = Note.all
+    @notes = Note.order(created_at: :desc)
   end
+
+  
 
   # GET /notes/1 or /notes/1.json
   def show
@@ -12,7 +17,8 @@ class NotesController < ApplicationController
 
   # GET /notes/new
   def new
-    @note = Note.new
+#    @note = Note.new
+@note = current_admin.notes.build
   end
 
   # GET /notes/1/edit
@@ -21,8 +27,8 @@ class NotesController < ApplicationController
 
   # POST /notes or /notes.json
   def create
-    @note = Note.new(note_params)
-
+#    @note = Note.new(note_params)
+@note = current_admin.notes.build(note_params)
     respond_to do |format|
       if @note.save
         format.html { redirect_to note_url(@note), notice: "Note was successfully created." }
@@ -33,7 +39,11 @@ class NotesController < ApplicationController
       end
     end
   end
-
+  # A custom method for CRUD notes only for current user
+  def correct_admin
+    @note = current_admin.notes.find_by(id: params[:id])
+    redirect_to notes_path, notice: "Unauthorized attempt. Make sure you have correct permission." if @note.nil?
+  end
   # PATCH/PUT /notes/1 or /notes/1.json
   def update
     respond_to do |format|
@@ -60,11 +70,14 @@ class NotesController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_note
-      @note = Note.find(params[:id])
+     # @note = Note.find(params[:id])
+    
+    @note = current_admin.notes.find_by(id: params[:id])
+    redirect_to notes_path, notice: "Unauthorized. Make sure you have correct permisssion." if @note.nil?
     end
 
     # Only allow a list of trusted parameters through.
     def note_params
-      params.require(:note).permit(:note_id, :title, :text, :user_id)
+      params.require(:note).permit(:note_id, :title, :text, :admin_id)
     end
 end

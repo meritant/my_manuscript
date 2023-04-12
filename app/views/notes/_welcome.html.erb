@@ -1,0 +1,62 @@
+
+<div class="center">
+
+
+<div class="d-grid gap-2 col-6 mx-auto">
+
+<% if !admin_signed_in? %>
+<%= link_to "Sign Up for Free", new_admin_registration_path, class:"btn btn-primary "%>
+
+
+</div>
+<br>
+<!--
+  Carousel Start
+  -->
+
+<%= render "carousel", note: @note %>
+  <!--
+  Carousel End
+  -->
+<br>
+<br>
+
+<% end %>
+</div>
+</div>
+<!-- centered footer-->
+<div class="center2">
+
+<div class="row row-cols-1 row-cols-md-3 g-4">
+  <div class="col-sm-6 mb-3 mb-sm-0">
+    <div class="card text-center" style="font-size: 0.875em;">
+      <div class="card-body">
+        <h5 class="card-title">Easy to Use</h5>
+        <p class="card-text">Anyone can start within 3 clcks</p>
+      </div>
+    </div>
+  </div>
+  <div class="col-sm-6">
+    <div class="card  orange-bg text-white text-center" style="font-size: 0.875em;">
+      <div class="card-body">
+        <h5 class="card-title">Intuitive UI</h5>
+        <p class="card-text">Simple Design and Intuitive Tools</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-sm-6">
+    <div class="card text-center" style="font-size: 0.875em;">
+      <div class="card-body">
+        <h5 class="card-title">Free Forever</h5>
+        <p class="card-text">Our service is FREE <strong>Forever</strong>!</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+  <br>
+  <br>
+  <br>
+  <br>
