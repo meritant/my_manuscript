@@ -23,11 +23,17 @@
   <input type="password" class="form-control" id="floatingPassword" placeholder="Password">
   <label for="floatingPassword">Password</label>
   <br>
+
 <div class="d-grid gap-2 col-6 mx-auto">
-  <button class="btn btn-primary" type="button">Sign in</button>
+
+<% if !admin_signed_in? %>
+
+<%= link_to "Sign Up for Free", new_admin_registration_path, class:"btn btn-primary "%>
+<% end %>
+
+
 </div>
 </div>
-  <a href=# class="link-warning">Forgot login or password</a>
 <br>
 <br>
 <br>

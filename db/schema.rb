@@ -10,7 +10,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_03_13_202413) do
+ActiveRecord::Schema[7.0].define(version: 2023_04_11_153454) do
+  create_table "admins", force: :cascade do |t|
+    t.string "email", default: "", null: false
+    t.string "encrypted_password", default: "", null: false
+    t.string "reset_password_token"
+    t.datetime "reset_password_sent_at"
+    t.datetime "remember_created_at"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["email"], name: "index_admins_on_email", unique: true
+    t.index ["reset_password_token"], name: "index_admins_on_reset_password_token", unique: true
+  end
+
   create_table "notes", force: :cascade do |t|
     t.integer "note_id"
     t.string "title"
@@ -20,22 +32,16 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_13_202413) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "record2s", force: :cascade do |t|
-    t.integer "record_id"
-    t.string "title"
-    t.string "text"
-    t.integer "user_id"
+  create_table "user_logs", force: :cascade do |t|
+    t.string "email", default: "", null: false
+    t.string "encrypted_password", default: "", null: false
+    t.string "reset_password_token"
+    t.datetime "reset_password_sent_at"
+    t.datetime "remember_created_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-  end
-
-  create_table "records", force: :cascade do |t|
-    t.integer "record_id"
-    t.string "title"
-    t.string "text"
-    t.integer "user_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.index ["email"], name: "index_user_logs_on_email", unique: true
+    t.index ["reset_password_token"], name: "index_user_logs_on_reset_password_token", unique: true
   end
 
   create_table "users", force: :cascade do |t|
@@ -43,7 +49,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_13_202413) do
     t.string "first_name"
     t.string "last_name"
     t.string "email"
-    t.string "phone"
+    t.string "pass"
     t.string "username"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

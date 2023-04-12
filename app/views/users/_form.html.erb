@@ -11,6 +11,12 @@
     </div>
   <% end %>
 
+  <div class="input-group mb-3">
+  <span class="input-group-text" id="basic-addon1">Username</span>
+
+    <%= form.text_field :username, class:"form-control", placeholder:"username" %>
+</div>
+
 
   <div class="input-group mb-3">
   <span class="input-group-text" id="basic-addon1">First Name</span>
@@ -21,20 +27,20 @@
 <div class="input-group mb-3">
   <span class="input-group-text" id="basic-addon1">Last Name</span>
 
-    <%= form.text_field :last_name, class:"form-control", placeholder:"My last name" %>
+    <%= form.text_field :last_name, class:"form-control", placeholder:"My Last Name" %>
 </div>
 
 <div class="input-group mb-3">
-  <span class="input-group-text" id="basic-addon1">e-mail</span>
+  <span class="input-group-text" id="basic-addon1">E-mail</span>
 
     <%= form.text_field :email, class:"form-control", placeholder:"e-mail" %>
 </div>
 
 
 <div class="input-group mb-3">
-  <span class="input-group-text" id="basic-addon1">password</span>
+  <span class="input-group-text" id="basic-addon1">Password</span>
 
-    <%= form.text_field :last_name, class:"form-control", placeholder:"password" %>
+    <%= form.text_field :pass, class:"form-control", placeholder:"password" %>
 </div>
 
  <div>

@@ -1,4 +1,10 @@
 Rails.application.routes.draw do
+ devise_for :admins
+ # A special scope to make sign out worke. It is not yet understood why it doesn't work without specifying scope.
+ devise_scope :admin do  
+  get '/admins/sign_out' => 'devise/sessions#destroy'     
+end 
+#
   resources :notes
   resources :users
   get 'home/about'

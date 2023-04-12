@@ -11,15 +11,29 @@
         <li class="nav-item">
         <%= link_to 'HOME', root_path, class:"nav-link active"%>
         </li>
+
+        <% if admin_signed_in? %>
         <li class="nav-item">
         <%= link_to 'NOTES', notes_path, class:"nav-link"%>
         </li>
         <li class="nav-item">
+        <%= link_to 'EDIT PROFILE', edit_admin_registration_path,  class:"nav-link"%>
+      </li>
+<%end%> 
+        <li class="nav-item">
         <%= link_to 'ABOUT', home_about_path, class:"nav-link"%>
         </li>
+<li class="nav-item ">
+        </li>
+
+
       </ul>
     </div>
 
-<%= link_to "Sign Up for Free", new_user_path,  class:"btn btn-primary btn-sm"%>
+      <% if admin_signed_in? %>
+      <%= link_to "SIGN OUT", destroy_admin_session_path,  method: :delete,  class:"btn btn-primary btn-sm"%>
+      <% else %>
+<%= link_to "SIGN IN", new_admin_session_path,  class:"btn btn-primary"%>
+  <% end %>
   </div>
 </nav>
